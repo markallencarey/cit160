@@ -1,0 +1,73 @@
+<!DOCTYPE HTML>
+<html lang="en-us">
+<head>
+<meta charset="utf-8">
+
+<title>Math Quiz</title>
+
+<script>
+
+/* Defining Table
+* Input: user enters a number, an arithmetic operator, another number, and the user's answer
+* Processing:
+*    1) calculate the correct result of the equation
+*    2) determine if the user input the correct answer
+* Output: Whether the user's answer was correct or incorrect
+*/
+
+function compareAnswers() {
+    
+    let firstNumber = parseFloat(document.getElementById('firstNumber').value);
+    let operator = document.getElementById('operator').value;
+    let secondNumber = parseFloat(document.getElementById('secondNumber').value);
+    let userAnswer = parseFloat(document.getElementById('userAnswer').value);
+    
+    let correctAnswer = ""
+    let operationValid = true
+
+    if (operator == "+") {
+        correctAnswer = firstNumber + secondNumber;
+    } else if (operator == "-") {
+        correctAnswer = firstNumber - secondNumber;
+    } else if (operator == "*") {
+        correctAnswer = firstNumber * secondNumber;
+    } else if (operator == "/") {
+        correctAnswer = firstNumber / secondNumber;
+    } else {
+        operationValid = false
+    }
+
+    if (operationValid) {
+        if (userAnswer == correctAnswer) {
+            document.getElementById('outputDiv').innerHTML = "Correct! Good Job!";
+        } else {
+            document.getElementById('outputDiv').innerHTML = "Incorrect. Try again!";
+        }
+    } else {
+        document.getElementById('outputDiv').innerHTML = "Sorry, we can't do that calculation...";
+    }
+
+    
+}
+
+</script>
+</head>
+
+<body>  
+                           
+Please enter a number: <input type="text" id="firstNumber">
+<br>
+Please enter an arithmetic operator: <input type="text" id="operator">
+<br>
+Please enter another number: <input type="text" id="secondNumber">
+<br>
+Please enter your answer to the equation: <input type="text" id="userAnswer">
+<br>
+<br>
+<button type="button" onclick="compareAnswers()">Did you get it right?</button>
+<br>
+<br>
+<div id="outputDiv"></div>
+
+</body>       
+</html>

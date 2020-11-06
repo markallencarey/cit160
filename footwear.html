@@ -1,0 +1,49 @@
+<!DOCTYPE HTML>
+<html lang="en-us">
+<head>
+<meta charset="utf-8">
+
+<title>Footwear</title>
+
+<script>
+
+/* Defining Table
+* Input: user enters a weather type
+* Processing: determine which footwear with if/else statements
+* Output: footwear
+*/
+
+function determineFootwear() {
+    let userWeather = document.getElementById('weatherInputBox').value
+    let footwear = ""
+    switch (userWeather) {
+        case "hot":
+            footwear = "sandals";
+            break;
+        case "rain":
+            footwear = "galoshes";
+            break;
+        case "snow":
+            footwear = "boots";
+            break;
+        default:
+            footwear = "shoes";
+            break;
+    }
+
+    document.getElementById('outputDiv').innerHTML = "You should wear " + footwear + "!"
+}
+
+</script>
+</head>
+
+<body>  
+
+Please enter a type of weather: <input type="text" id="weatherInputBox">
+  
+<button type="button" onclick="determineFootwear()">Determine Footwear</button>
+
+<div id="outputDiv"></div>
+
+</body>       
+</html>

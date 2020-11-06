@@ -1,0 +1,39 @@
+<!DOCTYPE HTML>
+<html lang="en-us">
+<head>
+<meta charset="utf-8">
+
+<title>Sum Odds</title>
+
+<script>
+
+/* Defining Table
+* Input: user enters an integer n
+* Processing: determine all the odd integers between 1 and n, then add them together
+* Output: sum of all the odd integers between 1 and n
+*/
+
+function calculateSum() {
+    let userInteger = parseFloat(document.getElementById('userInteger').value)
+    let sum = 0;
+    for (let i = 1; i <= userInteger; i++) {
+        if (i % 2 != 0) {
+            sum += i;
+        }
+    }
+
+    document.getElementById('outputDiv').innerHTML = sum
+}
+
+</script>
+</head>
+
+<body>
+  
+    Please enter an integer: <input type="text" id="userInteger">
+    <button type="button" onclick="calculateSum()">Calculate the sum of all the odd integers between 1 and your integer!</button>
+
+<div id="outputDiv"></div>
+
+</body>       
+</html>

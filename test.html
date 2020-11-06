@@ -1,0 +1,19 @@
+<!doctype html>
+<html lang="en-us">
+<head>
+<meta charset= "utf-8">
+<title> applied Scripture</title>
+<script>
+function applyScripture() {
+    let name = document.getElementById("nameInputBox").value;
+    let scripture = "I,  "+ name + ",Take heed that ye do not your alms before men, to be seen of them:" + "otherwise ye have no reward of your Father which is in heaven." + "Therefore when thou doest  thine alms, do not sound a trumpet before thee, as the hypocrites do in the synagogues and in the streets, that they may have glory of men". + "Verily i say unto you, They have their reward." + "But when thou doest alms, let not thy left hand know waht thy right hand doeth:" + "That thine alms may be in secret: and thy father which seeth in secret himself shall reward thee openly.";
+    document.getElementById("outputDiv").innerHTML = scripture;
+}
+</script>
+</head>
+<body>
+please enter your name: <input type="text" id="nameInputBox">
+<button type="button" onclick="applyScripture()">Verse</button>
+<div id="outputDiv"></div>
+</body>
+</html>
