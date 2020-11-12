@@ -18,10 +18,28 @@
 function fiveTimes() {
   for (let i = 1; i <= 12; i++) {
     const product = 5 * i
-    console.log(`5 X ${i} = ${product}`)
+    const displayLine = `5 x ${i} = ${product}`
+    document.getElementById(`outputDiv${i}`).innerHTML = displayLine
   }
 }
 
   </script>
+
+  <p>Here is the five times table from 1 to 12!</p>
+  <button type='button' onclick='fiveTimes()'>See the times table</button>
+  <br>
+  <br>
+  <div id='outputDiv1'></div>
+  <div id='outputDiv2'></div>
+  <div id='outputDiv3'></div>
+  <div id='outputDiv4'></div>
+  <div id='outputDiv5'></div>
+  <div id='outputDiv6'></div>
+  <div id='outputDiv7'></div>
+  <div id='outputDiv8'></div>
+  <div id='outputDiv9'></div>
+  <div id='outputDiv10'></div>
+  <div id='outputDiv11'></div>
+  <div id='outputDiv12'></div>
 </body>
 </html>

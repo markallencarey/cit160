@@ -1,26 +1,46 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>powers</title>
 </head>
+
 <body>
   <script>
 
-/* Defining Table
-* Input: N/A
-* Processing: use a for loop to display powers of 2 up to 2 ** 31
-* Output: exponent result
-*/
+    /* Defining Table
+    * Input: N/A
+    * Processing: use a for loop to display powers of 2 up to 2 ** 31
+    * Output: exponent result
+    */
 
-function powers() {
-  for (let i = 0; i <= 31; i++) {
-    const powerResult = 2 ** i
-    console.log(powerResult)
-  }
-}
+    function powers() {
+
+      let outputResult = ''
+
+      for (let i = 0; i <= 31; i++) {
+        if (i < 31) {
+          const powerResult = 2 ** i
+          outputResult += powerResult + ', '
+        } else {
+          const powerResult = 2 ** i
+          outputResult += powerResult
+        }
+      }
+      document.getElementById('outputDiv').innerHTML = outputResult
+    }
 
   </script>
-</body>
+
+  <body>
+    <p>Here are the powers of 2 from 0 to 31!</p>
+    <button type="button" onclick="powers()">See powers</button>
+    <br>
+    <br>
+    <div id="outputDiv"></div>
+
+  </body>
+
 </html>
