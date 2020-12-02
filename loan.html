@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Loan</title>
+</head>
+
+<body>
+  <script>
+
+    /* Defining Table
+    * Input: principal, annualRate, years, periodsPerYear, numberOfPaymentPaidToDate
+    * Processing: calculate the payment per period and future payoff balance
+    * Output: payment per period and future payoff balance
+    */
+
+    function doPayment() {
+      let principal = parseFloat(document.getElementById('principal').value)
+      let annualRate = parseFloat(document.getElementById('annualRate').value)
+      let years = parseFloat(document.getElementById('years').value)
+      let periodsPerYear = parseFloat(document.getElementById('periodsPerYear').value)
+
+      let payment = computePayment(principal, annualRate, years, periodsPerYear)
+
+      document.getElementById('compute-payment-div').innerHTML = `$${payment}`
+    }
+
+    function doBalance() {
+      let principal = parseFloat(document.getElementById('principal').value)
+      let annualRate = parseFloat(document.getElementById('annualRate').value)
+      let years = parseFloat(document.getElementById('years').value)
+      let periodsPerYear = parseFloat(document.getElementById('periodsPerYear').value)
+      let numberOfPaymentPaidToDate = parseFloat(document.getElementById('numberOfPaymentPaidToDate').value)
+
+      let balance = computeBalance(principal, annualRate, years, periodsPerYear, numberOfPaymentPaidToDate)
+
+      document.getElementById('compute-payoff-div').innerHTML = `$${balance}`
+    }
+
+    function computePayment(principal, annualRate, years, periodsPerYear) {
+      let ratePerPeriod = annualRate / periodsPerYear
+      let totalPeriods = periodsPerYear * years
+      let paymentPerPeriod = (principal * ratePerPeriod) / (1 - ((1 + ratePerPeriod)) ** -totalPeriods)
+      paymentPerPeriod = paymentPerPeriod.toFixed(2)
+      return paymentPerPeriod
+    }
+
+    function computeBalance(principal, annualRate, years, periodsPerYear, numberOfPaymentPaidToDate) {
+      let ratePerPeriod = annualRate / periodsPerYear
+      let totalPeriods = periodsPerYear * years
+      let paymentPerPeriod = (principal * ratePerPeriod) / (1 - ((1 + ratePerPeriod)) ** -totalPeriods)
+      let balance = (principal * ((1 + ratePerPeriod) ** numberOfPaymentPaidToDate)) - ((paymentPerPeriod * (((1 + ratePerPeriod) ** numberOfPaymentPaidToDate) - 1)) / ratePerPeriod)
+      balance = balance.toFixed(2)
+      return balance
+    }
+
+  </script>
+
+  <h1>Loan Calculator</h1>
+  Amount borrowed (principal) <input type="text" id="principal">
+  <br>
+  Annual interest rate (example: .065) <input type="text" id="annualRate">
+  <br>
+  Number of years <input type="text" id="years">
+  <br>
+  Payments per year <input type="text" id="periodsPerYear">
+  <br>
+  <button onClick='doPayment()'>Compute payment</button>
+  <div id='compute-payment-div'></div>
+  Number of payments paid to date <input type="text" id="numberOfPaymentPaidToDate">
+  <br>
+  <button onClick='doBalance()'>Compute payoff amount</button>
+  <div id='compute-payoff-div'></div>
+
+</body>
+
+</html>

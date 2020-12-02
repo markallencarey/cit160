@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>windChill</title>
+</head>
+
+<body>
+  <script>
+
+    /* Defining Table
+    * Input: temperature, speed
+    * Processing: calculate the wind chill
+    * Output: the windchill
+    */
+
+    function doInputOutput() {
+      let tempFInput = document.getElementById('temperature').value
+      console.log('doInputOutput -> tempFInput', tempFInput)
+      let speedInput = document.getElementById('wind-speed').value
+      console.log('doInputOutput -> speedInput', speedInput)
+
+      let newWindChill = windChill(tempFInput, speedInput)
+      document.getElementById('output-div').innerHTML = newWindChill
+    }
+
+    function windChill(tempF, speed) {
+      let windChill = 35.74 + (0.6215 * tempF) - (35.75 * (speed ** 0.16)) + (0.4275 * tempF * (speed ** 0.16))
+      console.log('windChill -> windChill', windChill)
+      return windChill
+    }
+
+  </script>
+
+  <p>Temperature: </p><input id='temperature' />
+  <p>Wind-Speed</p><input id='wind-speed' />
+  <br>
+  <br>
+  <button onClick='doInputOutput()''>Wind Chill</button>
+  <br>
+  <br>
+  <p>The wind chill is: </p>
+  <div id='output-div'></div>
+
+</body>
+
+</html>
